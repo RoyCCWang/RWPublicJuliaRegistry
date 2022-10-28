@@ -4,3 +4,4 @@ repo = "https://github.com/RoyCCWang/RWPublicJuliaRegistry"
 description = "Roy Wang's public unregistered Julia packages"
 
 [packages]
+4c44cab3-685a-4d4f-a3f2-2eeea13c7f9a = { name = "IntervalMonoFuncs", path = "I/IntervalMonoFuncs" }
