@@ -1,0 +1,3 @@
+name = "ConvexClustering"
+uuid = "0437234d-b0b7-4786-9d16-5c3be1f5901d"
+repo = "https://github.com/RoyCCWang/ConvexClustering.jl"

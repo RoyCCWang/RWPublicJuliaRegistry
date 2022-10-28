@@ -4,5 +4,6 @@ repo = "https://github.com/RoyCCWang/RWPublicJuliaRegistry"
 description = "Roy Wang's public unregistered Julia packages"
 
 [packages]
+0437234d-b0b7-4786-9d16-5c3be1f5901d = { name = "ConvexClustering", path = "C/ConvexClustering" }
 4c44cab3-685a-4d4f-a3f2-2eeea13c7f9a = { name = "IntervalMonoFuncs", path = "I/IntervalMonoFuncs" }
 a9bd3fed-5c2a-40f0-8692-fcfc96913d85 = { name = "MakiePlots", path = "M/MakiePlots" }
