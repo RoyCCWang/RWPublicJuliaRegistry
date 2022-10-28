@@ -3,3 +3,4 @@ uuid = "84f33253-0491-444a-bf7b-6508e99dde09"
 repo = "https://github.com/RoyCCWang/RWPublicJuliaRegistry"
 description = "Roy Wang's public unregistered Julia packages"
 
+[packages]
