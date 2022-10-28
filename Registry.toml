@@ -1,9 +1,5 @@
-name = "PublicJuliaRegistry"
+name = "RWPublicJuliaRegistry"
 uuid = "84f33253-0491-444a-bf7b-6508e99dde09"
-repo = "https://github.com/RoyCCWang/PublicJuliaRegistry"
-description = "Public unregistered Julia packages"
+repo = "https://github.com/RoyCCWang/RWPublicJuliaRegistry"
+description = "Roy Wang's public unregistered Julia packages"
 
-[packages]
-5f00b6f8-449e-4232-9d2b-fec91e432d60 = { name = "RiemannianOptim", path = "R/RiemannianOptim" }
-c16f81ae-bc18-4c85-8dee-b67f3150a483 = { name = "Utilities", path = "U/Utilities" }
-e7e85f5f-ed92-4e58-8c79-66a7ab0be84e = { name = "ProbabilityUtilities", path = "P/ProbabilityUtilities" }
