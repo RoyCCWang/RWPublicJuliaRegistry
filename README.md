@@ -23,86 +23,161 @@ I use the term *registry repository* to mean the file folder (if you're storing 
 
 If you don't have a local copy of your package, do:
 ```
-import Pkg; Pkg.develop(url = "url_to_your_package")
+import Pkg
+Pkg.develop(url = "url_to_your_package")
 ```
+
 If you do have a local copy of your package but it isn't in the `./julia/dev` path, then navigate to the root directory of your package in your shell, launch Julia REPL, then do
 ```
-import Pkg; Pkg.develop()
+import Pkg
+Pkg.activate() # this forces the activation of the base environment, in case your current environment is the package environment you're trying to add.
+Pkg.develop("./") # The package located at the current working directory will enter tracking-mode. Tested on Linux. Might need a different slash symbol or syntax for Windows and MacOS.
+```
+
+
+### Clean up step
+You might want to remove tracking-mode once you've registered a package to the registry, or finished updating a registered packaged in a registry.
+
+Remove tracking mode by uninstalling the package, or do `Pkg.free("PAKCAGE_NAME")`. The latter works because if `PACKAGE_NAME` is already in a registry that is connected with your current Julia installation. 
+
+For example:
+```
+import Pkg
+Pkg.free("MakiePlots")
 ```
 
 ### Why?
 [LocalRegistry.jl](https://github.com/GunnarFarneback/LocalRegistry.jl) requires the package you want to add to be on the list of *development paths* of your Julia install. On Fedora Linux, one default development path is at `~/.julia/dev/`, but it won't exist until you've actually obtained a package via `Pkg.develop()`. The relevant ideas for our discussion are:
-- `Pkd.add()` makes available a package to your activated environment.
-- `Pkg.develop()` makes available a package to all your enviornments. In other words, Julia will have access to the contents of packages (functions, modules, etc.) from Julia's list of development paths.
+- a Julia package is identified by its `uuid`, not its hosted repository or local path. 
+- `Pkd.add()` makes use of some registry to make sure dependencies can be reproduced for the packages. This is called *non-tracking* mode.
+- `Pkg.develop()` puts a package in *tracking* mode, where the package directory is added to the list of development paths (think of it as tracking paths).
 
-Although the `Pkg.develop()` behaviour sounds simple, it ignores the concept of virtual environments, and one can quickly run into dependency mismatch-related issues causing bugs to not be reproducible. Therefore, usually one only keep Julia projects that are actively being developed in the development path as a prototyping workflow, and remove it from the path once the project reaches its next release state. Please research the topics *dependency hell* and *Julia package manager* in the [official package manager documentation](https://pkgdocs.julialang.org/v1/managing-packages/#developing) to learn more about `Pkg.add()`, `Pkg.dev()`, and `Pkg.free()`.
+One can think of `Pkg.add()` as telling Julia to *stop tracking* (i.e., remove from the list of development paths) the package, and calling `Pkg.deveop()` tells Julia to start track the package at some location. Therefore, one can say `Pkg.add()` and `Pkg.deveop()` *overwrites* whatever tracking-related behavior for the package.
+
+Tracking a lot of packages using  `Pkg.develop()` ignores the concept of virtual environments, and one can run into dependency mismatch-related issues causing bugs to not be reproducible. Therefore, usually one only keep Julia projects that are actively being developed in the development path as a prototyping workflow, and remove it from the path once the project reaches its next release state. Please research the topics *dependency hell* and *Julia package manager* in the [official package manager documentation](https://pkgdocs.julialang.org/v1/managing-packages/#developing) and [this forum post](https://discourse.julialang.org/t/add-vs-dev-at-a-local-path/58150/6?u=royw) to learn more about `Pkg.add()`, `Pkg.dev()`, and `Pkg.free()`.
 
 Adding the directory of the package you want to the list of development paths allows [LocalRegistry.jl](https://github.com/GunnarFarneback/LocalRegistry.jl) to find and obtain the required information from packages on the development paths. 
 
 We will remove the package directory from the list of development paths once we're done with the registration process.
 
 
-## Step 1: Create a new registry
+## Step 1: Associate a custom registry with your Julia installation
+Do step 1a if you want to add packages to a new registry. You'll create a new registry in this step. You can skip 1b.
+Do step 1b if you want to add packages to an existing registry created by [LocalRegistry.jl](https://github.com/GunnarFarneback/LocalRegistry.jl). You can skip step 1a.
+
+### Step 1a: Create a new custom registry
+
 In the Julia REPL, I did the following to create the online repository that you're viewing now:
 ```
 using LocalRegistry
 create_registry("RWPublicJuliaRegistry", "https://github.com/RoyCCWang/RWPublicJuliaRegistry",
 description = "Public unregistered Julia packages")
 ```
+[LocalRegistry.jl](https://github.com/GunnarFarneback/LocalRegistry.jl) will automatically connect your Julia installation to this registry you just created.
 
-### Step 2: Add registry reference to the registry
-To use [LocalRegistry.jl](https://github.com/GunnarFarneback/LocalRegistry.jl) to add a package reference to the registry (called a *package registration to the registry*), do the following:
+Alternatively, you can just clone this online repository that you're viewing, delete the folders and their corresponding entries in `Registry.toml`, and upload it to a new location. In this case, you'll need to do step 1b.
 
-
-For HTTPS GitHub access.
+### Step 1b: Connect with an existing custom registry
+For HTTPS GitHub access, do:
 ```
 using Pkg
 pkg"registry add https://github.com/RoyCCWang/PublicJuliaRegistry"
 # this is only for HTTP.
 ```
+
+
 For SSH access:
 ```
 pkg"registry add git@github.com:RoyCCWang/RWPublicJuliaRegistry.git"
 ```
+If you get an error with SSH, you might need to do a `ssh-keyscan` to update known hosts for your operating system. For example, do the following from a bash shell terminal on Fedora Linux:
+```
+ssh-keyscan github.com >> ~/.ssh/known_hosts
+```
+However, you should consider the cyber security warning raised [here](https://github.com/JuliaLang/Pkg.jl/issues/2428#issuecomment-809669517) before running the `ssh-keyscan` command.
 
-This step creates the following in the registry repository:
+
+## Usage: Check which registries are connected (currently being used)
+```
+using Pkg
+Pkg.Registry.status()
+```
+By default, Julia ships with the `General` registry. You should see the registry you added in step 1.
+
+To remove a registry, do:
+```
+using Pkg
+Pkg.Registry.rm("REGISTRY_NAME")
+```
+See the [official Pkg.Registry documentation](https://pkgdocs.julialang.org/v1/registries/) for more instructions.
+
+
+## Step 2: add unregistered packages to a connected registry
+This registration step creates the following in the registry repository:
 - a folder that contain the meta information about the package
 - a corresponding entry in `Registry.toml`
 
-## Usage: Check which registries are currently in use
-`Pkg.Registry.status()` to check which registries are used. By default, Julia ships with the `General` registry.
 
-### To add unregistered packages to a registry
-To add to the registry, need to add the package (e.g. the `Utilities` packages mentioned below) via Pkg's `dev` instead of `Pkg.add` first. Remove the `dev` package once this procedure is done if you don't need Utilities in dev mode.
-Example for adding three unregistered packages to the `PublicJuliaRegistry` registry.
+Make sure the package you want to register is on Julia's list of development paths. This should'ave been covered in the preparation step.
 
+
+Examples:
 ```
 using LocalRegistry
-register("Utilities";
-registry = "PublicJuliaRegistry",
-repo = "https://gitlab.com/RoyCCWang/utilities")
 
-register("ProbabilityUtilities";
-registry = "PublicJuliaRegistry",
-push = true,
-repo = "https://gitlab.com/RoyCCWang/probabilityutilities")
+register("IntervalMonoFuncs";
+registry = "RWPublicJuliaRegistry",
+repo = "https://github.com/RoyCCWang/IntervalMonoFuncs.jl")
 
-register("RiemannianOptim";
-registry = "PublicJuliaRegistry",
+register("ConvexClustering";
+registry = "RWPublicJuliaRegistry",
 push = true,
-repo = "https://gitlab.com/RoyCCWang/riemannianoptim")
+repo = "https://github.com/RoyCCWang/ConvexClustering.jl")
+
+register("MakiePlots";
+registry = "RWPublicJuliaRegistry",
+push = true,
+repo = "https://github.com/RoyCCWang/MakiePlots.jl")
 ```
 
-### To update the version and compatibility meta info of a package that is already in a registry
-Once you make changes to a package that is listed in a registry, you might update its release number or other meta info. To incorporate this information into the registry:
-Make sure the latest version of the package of interest (e.g. Utilities in the example below) is installed in Julia locally via Pkg's `dev` instead of `add`.
-The following would update the meta data of the `Utilities` package to whichever URL/location that is installed locally in dev mode.
+To remove tracking mode, do:
+```
+import Pkg
+Pkg.free("IntervalMonoFuncs")
+Pkg.free("ConvexClustering")
+Pkg.free("MakiePlots")
+```
+Do `Pkg.rm()` instead of `Pkg.free()` if you want to remove the packages instead of convert to non-tracking mode.
 
+## Step 3: To update an existing package reference
+Suppose you made changes to a package that is referenced in a registry. It is the package-related meta information about the package that is important to a registry; if it has changed, then you nee to update the package's reference in registry. These meta information are:
+- all version numbers so far
+- dependencies
+- compatibility ranges for Julia versions and dependencies
+- package location
+For example, these information for the MakiePlots package reference can be found in the `M/MakiePlots` folder in this repository, and `Registry.toml` has a corresponding reference to `M/MakiePlots` folder.
+
+As an example: to update `MakiePlots`, make sure it is in tracking-mode (i.e. on the list of development paths), e.g. run:
+```
+import Pkg
+Pkg.develop("MakiePlots")
+
+```
+
+
+To update, do:
 ```
 using LocalRegistry
-register("Utilities")
+register("MakiePlots")
+```
+
+To remove tracking mode, do:
+```
+import Pkg
+Pkg.free("MakiePlots")
 ```
 
 
-## Manual edits
-You can check the `Registry.toml` file and see that it contains the information of the steps we discussed so far.
+
+## Troubleshooting: Manual edits
+You can check the `Registry.toml` file and see that it contains the information of the steps we discussed so far. It is possible to just manually edit the meta information in the folders and `Registry.toml` then push/upload to the hosting repository manually, instead of using [LocalRegistry.jl](https://github.com/GunnarFarneback/LocalRegistry.jl).
