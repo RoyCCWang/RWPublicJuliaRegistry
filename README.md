@@ -147,6 +147,8 @@ push = true,
 repo = "https://github.com/RoyCCWang/MakiePlots.jl")
 ```
 
+If you recently manually modifyed the registry repository, you might get an error when running the above. Try `Pkg.Registry.update()` to synchronize your local copy of the registry with the recently modified registry repository.
+
 To remove tracking mode, do:
 ```
 import Pkg
