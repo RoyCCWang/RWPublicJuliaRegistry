@@ -3,9 +3,17 @@ Public registry for some of my Julia packages. Created using [LocalRegistry.jl](
 
 # To connect this registry with your Julia installation
 The following line connects this registry along with (re-adding just to be safe) the `General` (i.e. the default public) julia registry to your Julia installation. This only needs to be run once for every Julia installation.
+
+HTTPS:
 ```
 using Pkg
 pkg"registry add General https://github.com/RoyCCWang/RWPublicJuliaRegistry"
+```
+
+SSH:
+```
+using Pkg
+pkg"registry add git@github.com:RoyCCWang/RWPublicJuliaRegistry.git"
 ```
 
 # To install a package from this registry
