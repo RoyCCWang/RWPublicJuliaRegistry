@@ -5,4 +5,3 @@ description = "Roy Wang's Julia packages"
 
 [packages]
 a9bd3fed-5c2a-40f0-8692-fcfc96913d85 = { name = "MakiePlots", path = "M/MakiePlots" }
-b70a8a31-ea99-4068-b746-dd57a94b00fb = { name = "ConjugateGradientOptim", path = "C/ConjugateGradientOptim" }
