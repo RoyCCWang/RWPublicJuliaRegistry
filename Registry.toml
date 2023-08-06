@@ -5,4 +5,3 @@ description = "Roy Wang's Julia packages"
 
 [packages]
 a9bd3fed-5c2a-40f0-8692-fcfc96913d85 = { name = "MakiePlots", path = "M/MakiePlots" }
-da5e2df6-2169-4d6c-a246-0eaf9ec197ca = { name = "RKHSRegularization", path = "R/RKHSRegularization" }
