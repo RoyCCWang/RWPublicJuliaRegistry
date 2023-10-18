@@ -134,9 +134,9 @@ This registration step creates the following in the registry repository:
 
 
 Make sure the package you want to register is on Julia's list of development paths. This should'ave been covered in the preparation step.
+Use https for public repositories, and git/SSH for private repositories. Since this is a public registry, we use only https as our GIT command to pull.
 
-
-Examples:
+Examples for using https:
 ```
 using LocalRegistry
 
