@@ -1,0 +1,3 @@
+name = "PublicationDatasets"
+uuid = "17766f69-17be-4aec-8093-a6905606c372"
+repo = "https://github.com/RoyCCWang/PublicationDatasets.jl.git"
