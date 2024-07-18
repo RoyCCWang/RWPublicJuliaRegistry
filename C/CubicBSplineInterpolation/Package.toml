@@ -1,0 +1,3 @@
+name = "CubicBSplineInterpolation"
+uuid = "cea239a1-aef7-4735-a0ad-35c493ad27cc"
+repo = "git@github.com:RWAlgorithms/CubicBSplineInterpolation.jl.git"
