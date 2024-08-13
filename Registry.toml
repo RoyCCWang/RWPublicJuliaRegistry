@@ -10,6 +10,7 @@ description = "Roy Wang's Julia packages"
 a9bd3fed-5c2a-40f0-8692-fcfc96913d85 = { name = "MakiePlots", path = "M/MakiePlots" }
 b41d7b93-16fb-427a-b53b-75fbbf0d305b = { name = "LazyGPR", path = "L/LazyGPR" }
 bbef0899-e1b9-4221-b844-2c76cd80d375 = { name = "RieszDSP", path = "R/RieszDSP" }
+bdfbccb5-7b9f-46a5-81ba-d94102a949ac = { name = "Swinhoii", path = "S/Swinhoii" }
 c106db08-dda1-4489-a87d-67900c2fbde0 = { name = "SpatialGSP", path = "S/SpatialGSP" }
 c92c07f7-79e0-4c96-b7d8-644755b8e616 = { name = "BayesOptAcqFuncs", path = "B/BayesOptAcqFuncs" }
 cea239a1-aef7-4735-a0ad-35c493ad27cc = { name = "CubicBSplineInterpolation", path = "C/CubicBSplineInterpolation" }
