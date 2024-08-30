@@ -7,7 +7,6 @@ description = "Roy Wang's Julia packages"
 17766f69-17be-4aec-8093-a6905606c372 = { name = "PublicationDatasets", path = "P/PublicationDatasets" }
 2033bc0d-f107-4f18-8621-02511e8703c9 = { name = "VisualizationBag", path = "V/VisualizationBag" }
 6a756269-0beb-43e6-ac86-29583eda3f4e = { name = "VariableMetricCG", path = "V/VariableMetricCG" }
-73654546-a64a-4061-b7ce-38750c91c016 = { name = "Sinensis", path = "S/Sinensis" }
 97668b99-8014-49ec-b886-f58efc46c16d = { name = "Macaque", path = "M/Macaque" }
 a9bd3fed-5c2a-40f0-8692-fcfc96913d85 = { name = "MakiePlots", path = "M/MakiePlots" }
 b41d7b93-16fb-427a-b53b-75fbbf0d305b = { name = "LazyGPR", path = "L/LazyGPR" }
