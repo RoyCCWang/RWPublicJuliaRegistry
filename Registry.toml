@@ -5,6 +5,7 @@ description = "Roy Wang's Julia packages"
 
 [packages]
 2033bc0d-f107-4f18-8621-02511e8703c9 = { name = "VisualizationBag", path = "V/VisualizationBag" }
+5a515ddf-a3f2-4a7d-82cc-71ac3f3f244b = { name = "NMRSignalSimulator", path = "N/NMRSignalSimulator" }
 a9bd3fed-5c2a-40f0-8692-fcfc96913d85 = { name = "MakiePlots", path = "M/MakiePlots" }
 b41d7b93-16fb-427a-b53b-75fbbf0d305b = { name = "LazyGPR", path = "L/LazyGPR" }
 bbef0899-e1b9-4221-b844-2c76cd80d375 = { name = "RieszDSP", path = "R/RieszDSP" }

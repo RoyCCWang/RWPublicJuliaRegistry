@@ -1,0 +1,3 @@
+name = "NMRSignalSimulator"
+uuid = "5a515ddf-a3f2-4a7d-82cc-71ac3f3f244b"
+repo = "https://github.com/RoyCCWang/NMRSignalSimulator.jl"
