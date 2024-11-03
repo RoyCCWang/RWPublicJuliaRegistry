@@ -10,6 +10,7 @@ b41d7b93-16fb-427a-b53b-75fbbf0d305b = { name = "LazyGPR", path = "L/LazyGPR" }
 bbef0899-e1b9-4221-b844-2c76cd80d375 = { name = "RieszDSP", path = "R/RieszDSP" }
 c106db08-dda1-4489-a87d-67900c2fbde0 = { name = "SpatialGSP", path = "S/SpatialGSP" }
 cea239a1-aef7-4735-a0ad-35c493ad27cc = { name = "CubicBSplineInterpolation", path = "C/CubicBSplineInterpolation" }
+d73005cc-2eb2-45b3-9785-29d07aec07ac = { name = "NMRHamiltonian", path = "N/NMRHamiltonian" }
 da5e2df6-2169-4d6c-a246-0eaf9ec197ca = { name = "RKHSRegularization", path = "R/RKHSRegularization" }
 f5da544b-7410-4471-9261-cf25b1dcdf05 = { name = "MaternRegression", path = "M/MaternRegression" }
 f8439c9b-f421-4171-88a6-2fea72ebf919 = { name = "SingleLinkagePartitions", path = "S/SingleLinkagePartitions" }

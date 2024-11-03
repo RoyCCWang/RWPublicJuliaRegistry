@@ -1,0 +1,3 @@
+name = "NMRHamiltonian"
+uuid = "d73005cc-2eb2-45b3-9785-29d07aec07ac"
+repo = "https://github.com/RoyCCWang/NMRHamiltonian.jl"
