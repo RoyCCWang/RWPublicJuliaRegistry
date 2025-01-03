@@ -1,0 +1,3 @@
+name = "NMRDataSetup"
+uuid = "ebb73dff-5abd-42b1-a10e-869024f50034"
+repo = "https://github.com/RoyCCWang/NMRDataSetup.jl"
