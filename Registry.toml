@@ -7,6 +7,7 @@ description = "Roy Wang's Julia packages"
 2033bc0d-f107-4f18-8621-02511e8703c9 = { name = "VisualizationBag", path = "V/VisualizationBag" }
 2c6f6ba7-1a3c-4d31-8511-d336c09a6ae6 = { name = "NMRSpecifyRegions", path = "N/NMRSpecifyRegions" }
 2d66d368-6024-4447-9e1b-2d73b7881971 = { name = "SpatialTrees", path = "S/SpatialTrees" }
+34309dff-104f-407b-ac3a-9212882a146c = { name = "PatchWorkKriging", path = "P/PatchWorkKriging" }
 3aa925f2-72f3-45fa-9558-7758dda5fa92 = { name = "ITPRootFinder", path = "I/ITPRootFinder" }
 5a515ddf-a3f2-4a7d-82cc-71ac3f3f244b = { name = "NMRSignalSimulator", path = "N/NMRSignalSimulator" }
 a9bd3fed-5c2a-40f0-8692-fcfc96913d85 = { name = "MakiePlots", path = "M/MakiePlots" }
