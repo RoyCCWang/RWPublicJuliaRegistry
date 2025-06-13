@@ -17,6 +17,7 @@ c106db08-dda1-4489-a87d-67900c2fbde0 = { name = "SpatialGSP", path = "S/SpatialG
 cea239a1-aef7-4735-a0ad-35c493ad27cc = { name = "CubicBSplineInterpolation", path = "C/CubicBSplineInterpolation" }
 d73005cc-2eb2-45b3-9785-29d07aec07ac = { name = "NMRHamiltonian", path = "N/NMRHamiltonian" }
 da5e2df6-2169-4d6c-a246-0eaf9ec197ca = { name = "RKHSRegularization", path = "R/RKHSRegularization" }
+e2ef96b1-cd92-47cb-be8e-5a4a57bdd46d = { name = "ShepardsInterpolations", path = "S/ShepardsInterpolations" }
 ebb73dff-5abd-42b1-a10e-869024f50034 = { name = "NMRDataSetup", path = "N/NMRDataSetup" }
 f5da544b-7410-4471-9261-cf25b1dcdf05 = { name = "MaternRegression", path = "M/MaternRegression" }
 f8439c9b-f421-4171-88a6-2fea72ebf919 = { name = "SingleLinkagePartitions", path = "S/SingleLinkagePartitions" }
