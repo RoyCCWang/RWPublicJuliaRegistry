@@ -14,6 +14,7 @@ a9bd3fed-5c2a-40f0-8692-fcfc96913d85 = { name = "MakiePlots", path = "M/MakiePlo
 b41d7b93-16fb-427a-b53b-75fbbf0d305b = { name = "LazyGPR", path = "L/LazyGPR" }
 bbef0899-e1b9-4221-b844-2c76cd80d375 = { name = "RieszDSP", path = "R/RieszDSP" }
 c106db08-dda1-4489-a87d-67900c2fbde0 = { name = "SpatialGSP", path = "S/SpatialGSP" }
+c1998724-06c8-4b73-8944-aed6cfa5d6a5 = { name = "PointSetVisualizer", path = "P/PointSetVisualizer" }
 cea239a1-aef7-4735-a0ad-35c493ad27cc = { name = "CubicBSplineInterpolation", path = "C/CubicBSplineInterpolation" }
 d73005cc-2eb2-45b3-9785-29d07aec07ac = { name = "NMRHamiltonian", path = "N/NMRHamiltonian" }
 da5e2df6-2169-4d6c-a246-0eaf9ec197ca = { name = "RKHSRegularization", path = "R/RKHSRegularization" }
